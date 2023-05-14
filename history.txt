@@ -1,0 +1,3 @@
+docker image build . -t custom-caddy:2.6.4-alpine
+docker container run --name mycaddy -p 12345:80/tcp -v "$(pwd)"/pages:/usr/src/pages -d custom-caddy:2.6.4-alpine
+curl -v http://127.0.0.1:12345/index.html | tee webpage.html
